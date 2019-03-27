@@ -7,7 +7,12 @@ include_once ('Produto.php');
         $GLOBALS['produtos'][] = $produto;
     }
 
-    function deletar() {
+    function deletar($id) {
+        foreach($GLOBALS['produtos'] as $i => $produto) 
+        {
+            if($produto->id === $id)
+                array_splice($GLOBALS['produtos'],$i,1);    
+        }
     }
 
     function atualizar() {
